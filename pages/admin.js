@@ -3,8 +3,6 @@
  * page you need to use MongoDB and set '"admin": true' on your account.
  **/
 import Link from 'next/link'
-import SyntaxHighlighter from 'react-syntax-highlighter'
-import { atomDark as SyntaxHighlighterTheme } from 'react-syntax-highlighter/dist/styles/prism';
 import { Col, Row } from 'reactstrap'
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table'
 import Page from '../components/page'
@@ -28,7 +26,7 @@ export default class extends Page {
       paginationPosition: 'top',
       paginationSize: 5,
       sizePerPage: 10,
-      sizePerPageList: [ 10, 50, 100 ]
+      sizePerPageList: [10, 50, 100]
     }
   }
 
@@ -50,9 +48,9 @@ export default class extends Page {
   async updateData() {
     this.setState({
       data: await User.list({
-          page: this.options.page,
-          size: this.options.sizePerPage
-        })
+        page: this.options.page,
+        size: this.options.sizePerPage
+      })
     })
   }
 
@@ -84,7 +82,7 @@ export class Table extends React.Component {
       return (<p>This page requires JavaScript.</p>)
 
     if (!this.props.data || this.props.data.length < 1)
-      return (<Loader/>)
+      return (<Loader />)
 
     const numberTo = (this.props.options.page * this.props.options.sizePerPage < this.props.totalSize) ? (this.props.options.page * this.props.options.sizePerPage) : this.props.totalSize
     const numberFrom = numberTo - this.props.data.length + 1
@@ -93,11 +91,11 @@ export class Table extends React.Component {
         <BootstrapTable pagination hover bordered={false}
           remote={true}
           data={this.props.data}
-          fetchInfo={ {dataTotalSize: this.props.totalSize} }
-          options={ this.props.options }>
-            <TableHeaderColumn isKey dataField="_id">ID</TableHeaderColumn>
-            <TableHeaderColumn dataField="name">Name</TableHeaderColumn>
-            <TableHeaderColumn dataField="email">Email</TableHeaderColumn>
+          fetchInfo={{ dataTotalSize: this.props.totalSize }}
+          options={this.props.options}>
+          <TableHeaderColumn isKey dataField="_id">ID</TableHeaderColumn>
+          <TableHeaderColumn dataField="name">Name</TableHeaderColumn>
+          <TableHeaderColumn dataField="email">Email</TableHeaderColumn>
         </BootstrapTable>
         <p className="mt-2 text-muted text-right">
           Displaying <strong>{numberFrom}-{numberTo}</strong> of <strong>{this.props.totalSize}</strong>

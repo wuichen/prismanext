@@ -1,13 +1,11 @@
 import Link from 'next/link'
-import SyntaxHighlighter from 'react-syntax-highlighter'
-import { atomDark as SyntaxHighlighterTheme } from 'react-syntax-highlighter/dist/styles/prism';
 import Page from '../../components/page'
 import Layout from '../../components/layout'
 
 export default class extends Page {
 
-  static async getInitialProps({req, query}) {
-    let props = await super.getInitialProps({req})
+  static async getInitialProps({ req, query }) {
+    let props = await super.getInitialProps({ req })
     props.slug = query.id
     return props
   }
@@ -43,7 +41,7 @@ export default class extends Page {
           <li><Link href="/examples/routing?id=example-two" as="/custom-route/example-two"><a>/custom-route/example-two</a></Link></li>
         </ul>
         <p>
-          Slug: { (this.props.slug) ? <span className="font-weight-bold">{this.props.slug}</span> : <span className="text-muted">None (default)</span> }
+          Slug: {(this.props.slug) ? <span className="font-weight-bold">{this.props.slug}</span> : <span className="text-muted">None (default)</span>}
         </p>
         <p>
           The value for the 'slug' is populated in <span className="font-weight-bold">getInitialProps()</span>.
@@ -57,20 +55,7 @@ export default class extends Page {
           tells Express that any requests for <span className="font-weight-bold">/custom-route/{'{'}anything{'}'}</span> should
           be handled by the template <a href="https://github.com/iaincollins/nextjs-starter/blob/master/pages/examples/routing.js">pages/examples/routing.js</a>, which is this page.
         </p>
-        <SyntaxHighlighter style={SyntaxHighlighterTheme} language="javascript">
-{`express.get('/custom-route/:id', (req, res) => {
-  return app.render(req, res, '/examples/routing', req.params)
-})`}</SyntaxHighlighter>
-        <p>
-         The last route we configure in Express is a fallback that says all
-         other routes should be handled by Next.js if no overriding routing
-         behaviour is defined:
-        </p>
-        <SyntaxHighlighter style={SyntaxHighlighterTheme} language="javascript">
-{`express.all('*', (req, res) => {
-  let nextRequestHandler = app.getRequestHandler()
-  return nextRequestHandler(req, res)
-})`}</SyntaxHighlighter>
+
         <p>
           Take a look at the source of <a href="https://github.com/iaincollins/nextjs-starter/blob/master/pages/examples/routing.js">this page</a> and <a href="https://github.com/iaincollins/nextjs-starter/blob/master/index.js">index.js</a> to see how
           to use &lt;Link&gt; with custom routes.

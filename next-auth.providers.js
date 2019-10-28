@@ -21,7 +21,7 @@
  **/
 
 // Load environment variables from a .env file if one exists
-require('dotenv').load()
+require('dotenv').config()
 
 module.exports = () => {
   let providers = []
@@ -103,6 +103,6 @@ module.exports = () => {
       }
     })
   }
-  
+
   return providers
 }
