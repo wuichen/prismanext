@@ -9,17 +9,6 @@ This is a starter project for React that uses Next.js.
 * SASS/SCSS wth Bootstrap 4 and Reactstrap with Bootstrap components for React
 * Comes with Ionicons icon font and shows how to bundle other CSS and font files
 
-You can see a live demo at **https://nextjs-starter.now.sh**
-
-## About 
-
-Next.js is a framework that makes it easy to create 'universal' React apps - React apps that do both client and server side rendering.
-
-With Next.js, React pages are automatically rendered on both client and server side, without the hassle of setting up dependancies like webpack or babel and with automatic routing and without the constraints of projects like Create React App.
-
-This is a starter project that provides an example of how to use Next.js with Express, SASS/SCSS, Bootstrap, Reactstrap (Boostrap 4 for React), the Ionicons icon set, examples of how to include data from remote REST APIs and incorporate an authentication system that supports both oAuth and Email using Passport (a popular authentication framework for Node.js).
-
-This project exists to make it easier to get started a creating production app in React. You are invited to use it as a reference or to copy it and use it as a base for your own projects. Contributions to improve this project are welcome.
 
 ## Running locally in development mode
 
@@ -54,9 +43,8 @@ Note: If you are already running a webserver on port 80 (e.g. Macs usually have 
 
 ## Configuring
 
-If you configure a .env file (just copy [.env.example](https://github.com/iaincollins/nextjs-starter/blob/master/.env.example) over to '.env' and fill in the options) you can configure a range of options.
+If you configure a .env file (just copy .env.example) over to '.env' and fill in the options) you can configure a range of options.
 
-See the [AUTHENTICATION.md](https://github.com/iaincollins/nextjs-starter/blob/master/AUTHENTICATION.md) for how to set up oAuth if you want to do that. It suggested you start with Twitter as it's the easiest to get working.
 
 ## Deploying to the cloud with now.sh
 
