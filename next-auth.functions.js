@@ -151,9 +151,7 @@ module.exports = () => {
       return new Promise(async (resolve, reject) => {
         try {
           await prisma.deleteUser({
-            where: {
-              id: user.id
-            },
+            id: id
           })
           return resolve(true)
         } catch (err) {
