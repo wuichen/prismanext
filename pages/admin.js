@@ -1,6 +1,6 @@
 /**
  * This is an example of a simple (read only) user dashboard. To acess this page
- * page you need to use MongoDB and set '"admin": true' on your account.
+ * page you need to use Prisma and add ADMIN to user.roles on your account.
  **/
 import Link from 'next/link'
 import { Col, Row } from 'reactstrap'

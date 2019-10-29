@@ -22,12 +22,12 @@
  *
  * Each function returns Promise.resolve() - or Promise.reject() on error.
  *
- * This specific example supports both MongoDB and NeDB, but can be refactored
+ * This specific example supports both Prisma and NeDB, but can be refactored
  * to work with any database.
  *
  * Environment variables for this example:
  *
- * MONGO_URI=mongodb://localhost:27017/my-database
+ * PRISMA_ENDPOINT=https://stylechain-c75dcd094b.herokuapp.com/prismanext/dev
  * EMAIL_FROM=username@gmail.com
  * EMAIL_SERVER=smtp.gmail.com
  * EMAIL_PORT=465
@@ -41,7 +41,7 @@
 // Load environment variables from a .env file if one exists
 require('dotenv').config()
 
-// This config file uses MongoDB for User accounts, as well as session storage.
+// This config file uses Prisma for User accounts, as well as session storage.
 // This config includes options for NeDB, which it defaults to if no DB URI 
 // is specified. NeDB is an in-memory only database intended here for testing.
 const NeDB = require('nedb')
@@ -162,7 +162,6 @@ module.exports = () => {
     },
     // Seralize turns the value of the ID key from a User object
     serialize: (user) => {
-      // Supports serialization from Mongo Object *and* deserialize() object
       if (user.id) {
         // Handle responses from deserialize()
         return Promise.resolve(user.id)

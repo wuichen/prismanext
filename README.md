@@ -1,7 +1,7 @@
 # Next.js Starter Project
 
 This is a starter project for React that uses Next.js.
-
+* Prisma with SQL as db engine / ORM / CMS dashboard
 * Authentication via Email, Facebook, Twitter and Google+
 * Uses Express combined with Passport JS for authentication and route handling
 * Account management - Update details, link/unlink accounts, delete account
@@ -23,10 +23,11 @@ This project exists to make it easier to get started a creating production app i
 
 ## Running locally in development mode
 
-To get started, just clone the repository and run `npm install && npm run dev`:
+To get started, setup a Prisma endpoint, edit `.env`, clone the repository and run `npm install && npm run prisma-deploy && npm run dev`:
 
     git clone https://github.com/iaincollins/nextjs-starter.git
     npm install
+    npm run prisma-deploy
     npm run dev
 
 Note: If you are running on Windows run install --noptional flag (i.e. `npm install --no-optional`) which will skip installing fsevents.
@@ -37,11 +38,19 @@ If you wanted to run this site in production, you should install modules then bu
 
     npm install
     npm run build
+    npm run prisma-deploy
     npm start
 
 You should run `npm run build` again any time you make changes to the site.
 
 Note: If you are already running a webserver on port 80 (e.g. Macs usually have the Apache webserver running on port 80) you can still start the example in production mode by passing a different port as an Environment Variable when starting (e.g. `PORT=3000 npm start`).
+
+## Open Prisma's dashboard
+
+1. Obtain the token to access prisma dashboard by running `npm run prisma-token`. 
+2. Head over to prisma's endpoint and add /_admin to the end of the url.
+3. Click the settings icon and input the tokens value.
+
 
 ## Configuring
 
@@ -89,7 +98,7 @@ You can configure `now` to use aliases with custom domains using the `now domain
 
 ### Database hosting
 
-If you need an instance of MongoDB in the cloud https://mlab.com/ have free and inexpensive options.
+Please setup a prisma server following [Prisma](https://www.prisma.io), and edit PRISMA_ENDPOINT in `.env`
 
 ### Secrets for Environment Variables
 
