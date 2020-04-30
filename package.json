@@ -13,7 +13,7 @@
     "express-session": "^1.17.0",
     "ionicons": "^4.6.3",
     "isomorphic-fetch": "^2.2.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "memorystore": "^1.6.1",
     "nedb": "^1.8.0",
     "next": "^9.1.1",
